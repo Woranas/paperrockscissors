@@ -5,4 +5,5 @@
 
     <dimen name="hi">60sp</dimen>
     <dimen name="h2">120dp</dimen>
+    <dimen name="play">240dp</dimen>
 </resources>
