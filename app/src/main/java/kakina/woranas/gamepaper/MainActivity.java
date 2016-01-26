@@ -6,48 +6,45 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+
     //Explicit
-    private ImageView paperImageView, scissorImageView, rockimageView ,playImageView, androidImageView;
-    private TextView showTextView;
-    private String intNumber;
+    private ImageView paperImageView, rockImageView,
+            scissorImageView, playImageViwe, androidImageView;
+    private TextView showtextView;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-                setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 
-        //Bind vidget
-        bindwidger();
-        //paper Controller
+        // Bind widget
+        bindwidget();
+
+        //Paper Controller
         paperController();
         //Rock Controller
         rockController();
-        //scissor Controller
+        //ScissorController
         scissorController();
-    } // main Metthod
+    }// Main Metthod
 
     private void scissorController() {
         scissorImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 changePlay(3);
             }
         });
     }
 
-    private void changePlay(int i) {
-
-    }
-
     private void rockController() {
-        rockimageView.setOnClickListener(new View.OnClickListener() {
+        rockImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -57,44 +54,50 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void paperController() {
-    paperImageView.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
 
-            ChangePlay(1);
-        }
-    });
+        paperImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int intNumber = 1;
+                changePlay(intNumber);
 
-    }//paperController
+            }
+        });
 
-    private void ChangePlay(int intNumber) {
-        Log.d("test","คำสั่งที่รับได้ = " + intNumber);
-        int intSound = R.raw.mosquito;
+    } // paperController
+
+    private void changePlay(int intNumber) {
+
+        Log.d("test","ค่าที่รับได้ = " + intNumber);
+        int intSound = R.raw.cat;
         switch (intNumber) {
             case 1:
-                playImageView.setImageResource(R.drawable.paper);
+                playImageViwe.setImageResource(R.drawable.paper);
+                intSound = R.raw.Untitled3;
                 break;
             case 2:
-                playImageView.setImageResource(R.drawable.rock);
+                playImageViwe.setImageResource(R.drawable.rock);
+                intSound = R.raw.Untitled2;
                 break;
             case 3:
-                paperImageView.setImageResource(R.drawable.scissors);
+                playImageViwe.setImageResource(R.drawable.scissors);
+                intSound = R.raw.Untitled;
                 break;
-        }
-        MediaPlayer imageMediaPlay = MediaPlayer.create(getBaseContext(), intSound);
-        imageMediaPlay.start();
-    }   //ChangePlay
+        }// switch
+        MediaPlayer imageMediaPlayer = MediaPlayer.create(getBaseContext(), intSound);
+        imageMediaPlayer.start();
+    }// changePlay
 
 
-    private void bindwidger() {
+
+    private void bindwidget() {
         paperImageView = (ImageView) findViewById(R.id.imvpaper);
-        rockimageView = (ImageView) findViewById(R.id.imvrock);
+        rockImageView = (ImageView) findViewById(R.id.imvrock);
         scissorImageView = (ImageView) findViewById(R.id.imvScissro);
-        playImageView = (ImageView) findViewById(R.id.imageView5);
-        androidImageView = (ImageView) findViewById(R.id.imvandroid);
-        showTextView = (TextView) findViewById(R.id.txtshow);
-
+        playImageViwe = (ImageView) findViewById(R.id.imvPlayer);
+        androidImageView = (ImageView) findViewById(R.id.imageView5);
+        showtextView = (TextView) findViewById(R.id.txtshow);
 
 
     }
-}   // Main Class นี้คือคลาสหลัก
+} // Main Class นี่คือคลาสหลักก
